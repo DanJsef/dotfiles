@@ -6,23 +6,6 @@
  *
  */
 
-configuration {
-
-	font: "DejaVu Sans Mono for Powerline 11";
-	/*font: "Terminus (TTF) 12";*/
-	width: 60;
-	line-margin: 10;
-	lines: 16;
-	columns: 4;
-
-    display-ssh:    "";
-    display-run:    "";
-    display-drun:   "";
-    display-window: "";
-    display-combi:  "";
-    show-icons:     true;
-}
-
 * {
 	nord0: #2e3440;
 	nord1: #3b4252;
@@ -51,6 +34,7 @@ configuration {
     highlight:     underline bold #eceff4;
 
     transparent: rgba(46,52,64,0);
+    text-color: #ffffff;
 }
 
 window {
@@ -64,6 +48,9 @@ window {
     spacing: 0;
     children:  [mainbox];
     orientation: horizontal;
+
+	width: 60%;
+	
 }
 
 mainbox {
@@ -105,6 +92,9 @@ listview {
     border: 0px 0px 0px 0px;
     background-color: rgba(46,52,64,0.8);
     dynamic: false;
+    line-margin: 10;
+    lines: 16;
+    columns: 4;
 }
 
 element {

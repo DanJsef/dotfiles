@@ -1,0 +1,379 @@
+[bar/mybar]
+
+override-redirect = true
+
+top = true
+
+fixed-center = true
+
+width = 98.4%
+height = 42
+
+offset-x = 0.8%
+offset-y = 10
+
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
+background = #992E3440
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
+foreground = #000
+
+line-size = 2
+line-color = #fff
+
+padding-right = 3
+
+module-margin = 1
+
+;font-0 = DejaVu Sans Mono for Powerline:style=Medium:size=7.5;2
+font-0 = Terminus (TTF):size=8.5;1.5
+font-1 = feather-custom:size=9;3
+font-2 = FontAwesome5Free:style=Solid:size=8;2
+font-3 = unifont:size=10;3
+
+modules-left = i3
+modules-center =
+modules-right = wireless-network sep memory sep cpu sep pulseaudio sep battery sep date
+
+spacing = 0
+
+dim-value = 1.0
+
+wm-name = i3
+
+; Available positions:
+;   left
+;   center
+;   right
+;   none
+tray-position = none
+
+tray-detached = false
+
+tray-maxsize = 16
+
+tray-transparent = false
+
+tray-background = ${root.background}
+
+tray-offset-x = 0
+tray-offset-y = 0
+
+tray-padding = 0
+
+tray-scale = 1.0
+
+wm-restack = i3
+
+dpi-x = 135
+dpi-y = 135
+
+enable-ipc = false
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+
+strip-wsnumbers = true
+
+index-sort = true
+
+enable-click = true
+
+enable-scroll = false
+
+wrapping-scroll = false
+
+reverse-scroll = false
+
+fuzzy-match = true
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-foreground = #D8DEE9
+
+label-focused = %index%
+label-focused-background = #4C566A
+label-focused-padding = 2
+label-focused-foreground = #D8DEE9
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-volume = %percentage%%
+label-volume-foreground = #D08770
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-muted = 
+label-muted-foreground = #D08770
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = #D08770
+
+; Right and Middle click
+click-right = pavucontrol
+; click-middle = 
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %a, %d %b
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %a, %d %b
+time-alt = %H:%M:%S
+
+label = %date% %time%
+label-font = 0
+label-foreground = #D8DEE9
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+
+label-connected = %essid%
+format-connected = <ramp-signal>
+label-connected-foreground = #A3BE8C
+
+format-disconnected = <label-disconnected>
+label-disconnected = 
+label-disconnected-foreground = #C33027
+
+ramp-signal-foreground = #A3BE8C
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+label =  %percentage:2%%
+
+label-foreground = #81A1C1
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format = <label>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+
+label =  %gb_used%
+
+label-foreground = #B48EAD
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 80
+
+format = <label>
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label =  %temperature-c%
+
+label-foreground = #BF616A
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging =  %percentage:2%%
+
+label-charging-foreground = #A3BE8C
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging =  %percentage:2%%
+
+label-discharging-foreground = #EDB54B
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+label-full =  %percentage:2%%
+label-full-foreground = #A3BE8C
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #EDB54B
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #A3BE8C
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = #DCA060
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+[module/decor-glyph]
+type = custom/text
+content-foreground = #4C566A
+margin = 0
+
+[module/sep]
+inherit = module/decor-glyph
+content = "/"
