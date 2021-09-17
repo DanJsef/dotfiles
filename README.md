@@ -6,6 +6,7 @@
 - **Terminal:** kitty
 - **Status bar:** polybar
 - **Notifications:** Dunst
+- **Menu:** Rofi
 - **Compositor:** Picom (jonaburg)
 - **Editor:** Neovim
 - **Fonts:** FiraCode Nerd, Terminus (TTF)
