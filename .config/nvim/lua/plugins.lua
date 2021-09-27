@@ -12,7 +12,7 @@ return require('packer').startup(function()
 
   use "kyazdani42/nvim-web-devicons"
 
---  use 'folke/lsp-colors.nvim'
+  --use 'folke/lsp-colors.nvim'
 
   use {
     "kyazdani42/nvim-tree.lua",
@@ -74,8 +74,6 @@ return require('packer').startup(function()
 
   use  'windwp/nvim-autopairs'
 
-  --use 'psliwka/vim-smoothie'
-
   use 'karb94/neoscroll.nvim'
 
   use 'ggandor/lightspeed.nvim'
@@ -87,6 +85,10 @@ return require('packer').startup(function()
   use 'alvan/vim-closetag'
 
   use 'iamcco/markdown-preview.nvim'
+
+  --use 'tpope/vim-sleuth'
+
+  --use "lukas-reineke/indent-blankline.nvim"
 
   use {
     'glacambre/firenvim',

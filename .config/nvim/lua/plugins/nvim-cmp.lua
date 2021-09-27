@@ -45,5 +45,6 @@ local cmp = require'cmp'
 	  })[entry.source.name]
 	  return vim_item
 	end,
-	}
+	},
+	preselect = cmp.PreselectMode.None,
   })

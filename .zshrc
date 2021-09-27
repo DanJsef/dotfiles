@@ -160,3 +160,4 @@ export BAT_THEME="Nord"
 
 alias zoomj="/home/danielj/Documents/side-projects/automation/zoom/zoom.py"
 alias vim=nvim
+alias wb='w3m duckduckgo.com'

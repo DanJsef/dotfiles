@@ -1,6 +1,8 @@
 local utils = require('utils')
 
-utils.map('n', '<leader>ft', '<cmd>:NvimTreeToggle<CR>')
+
+
+utils.map('n', '<leader>ft', '<cmd>:NvimTreeRefresh<CR> <cmd>:NvimTreeToggle<CR>')
 
 local present, tree_c = pcall(require, "nvim-tree.config")
 if not present then
