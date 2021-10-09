@@ -8,6 +8,7 @@
 - **Notifications:** Dunst
 - **Menu:** Rofi
 - **Compositor:** Picom (jonaburg)
+- **Lockscreen:** betterlockscreen
 - **Editor:** Neovim
 - **Fonts:** FiraCode Nerd, Terminus (TTF)
 
