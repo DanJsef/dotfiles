@@ -41,7 +41,7 @@ require'lspconfig'.lua.setup {
     }
 }
 
-local servers = {'python','csharp', 'typescript', 'html', 'dockerfile', 'latex', 'go', 'bash'}--require'lspinstall'.installed_servers()
+local servers = {'python','csharp', 'typescript', 'html', 'dockerfile', 'latex', 'go', 'bash', 'cpp', 'css', 'php'}--require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do
   require'lspconfig'[server].setup{
     require'lsp_signature'.setup({cfg = {fix_pos = true}});
