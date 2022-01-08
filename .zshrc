@@ -154,6 +154,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#EB606B"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 path+=$HOME/bin
+path+=$HOME/.config/composer/vendor/bin
 
 export EDITOR="nvim"
 export BAT_THEME="Nord"

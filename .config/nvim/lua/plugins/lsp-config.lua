@@ -5,7 +5,7 @@ local utils = require('../utils')
   utils.map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
   utils.map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
   utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-    utils.map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  utils.map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   utils.map('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
   utils.map('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
   utils.map('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
@@ -29,22 +29,48 @@ local utils = require('../utils')
 
 -- Auto install language servers extension
 
-require'lspinstall'.setup()
+--require'lspconfig'.lua.setup {
+		--settings = {
+				--Lua = {
+						--diagnostics = {
+								--globals = { 'vim', 'use' }
+						--}
+				--}
+		--}
+--}
 
-require'lspconfig'.lua.setup {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim', 'use' }
-            }
-        }
-    }
-}
+--require'lspconfig'.clangd.setup {
+	--cmd = { "clangd", "--header-insertion=iwyu" }
+--}
 
-local servers = {'python','csharp', 'typescript', 'html', 'dockerfile', 'latex', 'go', 'bash', 'cpp', 'css', 'php'}--require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{
-    require'lsp_signature'.setup({cfg = {fix_pos = true}});
+
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+		require'lsp_signature'.setup({cfg = {fix_pos = true}});
 		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-end
+    local opts = { capabilities = capabilities }
+
+		if server.name == "sumneko_lua" then
+			opts.settings = {Lua = {
+						diagnostics = {
+								globals = { 'vim', 'use' }
+						}
+				}}
+		end
+
+		if server.name == "clangd" then
+			opts.cmd = { "clangd", "--header-insertion=iwyu", "--background-index" }
+		end
+
+
+    server:setup(opts)
+end)
+
+--local servers = {'cpp','python','csharp', 'typescript', 'php', 'dockerfile', 'latex', 'go', 'bash', 'css', 'html', 'cmake'}--require'lspinstall'.installed_servers()
+--for _, server in pairs(servers) do
+	--require'lspconfig'[server].setup{
+		--require'lsp_signature'.setup({cfg = {fix_pos = true}});
+		--capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+	--}
+--end

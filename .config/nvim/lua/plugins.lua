@@ -2,11 +2,11 @@ return require('packer').startup(function()
 
   use {'wbthomason/packer.nvim', opt = true}
 
-  use 'arcticicestudio/nord-vim'
+	--use 'arcticicestudio/nord-vim'
 
-  --use 'shaunsingh/nord.nvim'
+	use 'shaunsingh/nord.nvim'
 
-  --use { 'maaslalani/nordbuddy' }
+	--use { 'maaslalani/nordbuddy' }
 
   use 'glepnir/dashboard-nvim'
 
@@ -51,7 +51,7 @@ return require('packer').startup(function()
     }
   }
 
-  use 'kabouzeid/nvim-lspinstall'
+  use 'williamboman/nvim-lsp-installer'
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -62,7 +62,7 @@ return require('packer').startup(function()
 
   use 'lewis6991/spellsitter.nvim'
 
-  use 'RRethy/vim-illuminate'
+	use 'RRethy/vim-illuminate'
 
   use 'norcalli/nvim-colorizer.lua'
 

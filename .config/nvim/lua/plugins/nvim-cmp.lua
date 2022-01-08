@@ -15,15 +15,15 @@ local cmp = require'cmp'
 	})
     },
     sources = {
-      { name = 'nvim_lsp' },
-      { name = 'nvim_lua' },
-      { name = 'treesitter' },
-      { name = 'spell' },
-      { name = 'buffer' },
-      { name = 'path' },
-      { name = 'latex_symbols' },
-      { name = 'calc' },
-      { name = 'tags' },
+      { name = 'nvim_lsp', priority = 9 },
+      { name = 'nvim_lua', priority = 8 },
+      { name = 'treesitter', priority = 6 },
+      { name = 'spell', priority = 3 },
+      { name = 'buffer', priority = 4 },
+      { name = 'path', priority = 5 },
+      { name = 'latex_symbols', priority = 7 },
+      { name = 'calc', priority = 1 },
+      { name = 'tags', priority = 2 },
     },
     formatting = {
       format = function(entry, vim_item)

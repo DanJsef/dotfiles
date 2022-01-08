@@ -1,8 +1,6 @@
 local utils = require('utils')
 
-
-
-utils.map('n', '<leader>ft', '<cmd>:NvimTreeRefresh<CR> <cmd>:NvimTreeToggle<CR>')
+utils.map('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
 local present, tree_c = pcall(require, "nvim-tree.config")
 if not present then
@@ -12,35 +10,6 @@ end
 local tree_cb = tree_c.nvim_tree_callback
 local g = vim.g
 
-vim.o.termguicolors = true
-
-g.nvim_tree_side = "left"
-g.nvim_tree_width = 35
-g.nvim_tree_ignore = {}
-g.nvim_tree_gitignore = 0
-g.nvim_tree_auto_ignore_ft = {"dashboard"} -- don't open tree on specific fiypes.
-g.nvim_tree_auto_open = 0
-g.nvim_tree_auto_close = 1
-g.nvim_tree_quit_on_open = 0
-g.nvim_tree_follow = 1
-g.nvim_tree_indent_markers = 0
-g.nvim_tree_hide_dotfiles = 0
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 0
-g.nvim_tree_root_folder_modifier = table.concat {":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??"}
-g.nvim_tree_tab_open = 0
-g.nvim_tree_allow_resize = 1
-g.nvim_tree_add_trailing = 0
-g.nvim_tree_disable_netrw = 1
-g.nvim_tree_hijack_netrw = 0
-g.nvim_tree_update_cwd = 1
-
-g.nvim_tree_show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows= 0
-}
 g.nvim_tree_icons = {
     default = "",
     symlink = "",
@@ -96,3 +65,48 @@ g.nvim_tree_bindings = {
     {key = "q", cb = tree_cb("close")},
     {key = "g?", cb = tree_cb("toggle_help")}
 }
+
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = true,
+  open_on_tab         = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  hijack_cursor       = false,
+  update_cwd          = false,
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+
+  view = {
+    width = 35,
+    height = 30,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    }
+  }
+}
+

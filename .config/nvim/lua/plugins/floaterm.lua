@@ -13,7 +13,6 @@ vim.cmd([[highlight FloatermBorder guifg=none]])
 local terms = { ranger = false, lazygit = false, wb = false}
 
 function ToggleTerm(term)
-	print(terms[term])
 	if terms[term] then
 		vim.cmd('FloatermShow ' .. term)
 	else
