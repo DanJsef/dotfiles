@@ -57,7 +57,8 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id $TERMINAL
 bindsym $mod+e exec --no-startup-id pcmanfm
 bindsym $mod+w exec --no-startup-id $BROWSER
-bindsym $mod+n exec --no-startup-id obsidian
+bindsym $mod+n exec --no-startup-id notion-app
+bindsym $mod+m exec --no-startup-id ~/.config/eww/launch_eww
 
 # kill focused window
 bindsym $mod+Shift+q kill

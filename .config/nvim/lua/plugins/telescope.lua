@@ -16,7 +16,15 @@ require('telescope').setup{
 				["<C-b>"] = actions.delete_buffer,
       },
     },
-   }
+		file_ignore_patterns = {
+			".git"
+		}
+  },
+	pickers = {
+		find_files = {
+			hidden = true,
+		}
+	}
 }
 
 -- Bindings
