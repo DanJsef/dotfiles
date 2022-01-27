@@ -30,9 +30,8 @@ require('telescope').setup{
 -- Bindings
 
 utils.map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-utils.map('n', '<leader>ft', '<cmd>lua require("telescope.builtin").file_browser()<cr>')
 utils.map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 utils.map('n', '<leader>bf', '<cmd>lua require("telescope.builtin").buffers()<cr>')
 utils.map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").treesitter()<cr>')
 utils.map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>')
-utils.map('n', '<leader>fd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>')
+utils.map('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<cr>')
