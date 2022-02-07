@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local lspkind = require('lspkind')
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -26,25 +27,26 @@ local cmp = require'cmp'
       { name = 'tags', priority = 2 },
     },
     formatting = {
-      format = function(entry, vim_item)
-	  -- fancy icons and a name of kind
-	  vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+			format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
 
-	  -- set a name for each source
-	  vim_item.menu = ({
-	    buffer = "[Buffer]",
-	    nvim_lsp = "[LSP]",
-	    luasnip = "[LuaSnip]",
-	    nvim_lua = "[Lua]",
-	    latex_symbols = "[Latex]",
-	    spell = "[Spell]",
-	    path = "[Path]",
-	    calc = "[Calc]",
-	    tags = "[Tags]",
-	    treesitter = "[Treesitter]",
-	  })[entry.source.name]
-	  return vim_item
-	end,
-	},
+      before = function (entry, vim_item)
+				vim_item.menu = ({
+					buffer = "[Buffer]",
+					nvim_lsp = "[LSP]",
+					luasnip = "[LuaSnip]",
+					nvim_lua = "[Lua]",
+					latex_symbols = "[Latex]",
+					spell = "[Spell]",
+					path = "[Path]",
+					calc = "[Calc]",
+					tags = "[Tags]",
+					treesitter = "[Treesitter]",
+				})[entry.source.name]
+        return vim_item
+      end
+    	})
+  	},
 	preselect = cmp.PreselectMode.None,
   })
