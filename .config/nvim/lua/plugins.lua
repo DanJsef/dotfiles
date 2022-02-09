@@ -48,6 +48,7 @@ return require('packer').startup(function()
       "f3fora/cmp-spell",
       "kdheepak/cmp-latex-symbols",
       "quangnguyen30192/cmp-nvim-tags",
+			"uga-rosa/cmp-dictionary",
     }
   }
 

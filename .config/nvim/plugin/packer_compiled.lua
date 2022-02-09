@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/danielj/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
   },
+  ["cmp-dictionary"] = {
+    loaded = true,
+    path = "/home/danielj/.local/share/nvim/site/pack/packer/start/cmp-dictionary",
+    url = "https://github.com/uga-rosa/cmp-dictionary"
+  },
   ["cmp-latex-symbols"] = {
     loaded = true,
     path = "/home/danielj/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols",
