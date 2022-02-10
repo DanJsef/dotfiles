@@ -26,6 +26,7 @@ cmp.setup({
     { name = 'latex_symbols', priority = 7 },
     { name = 'calc', priority = 1 },
     { name = 'tags', priority = 2 },
+    { name = 'orgmode', priority = 9 },
     --{ name = 'dictionary', priority = 1 },
   },
   formatting = {

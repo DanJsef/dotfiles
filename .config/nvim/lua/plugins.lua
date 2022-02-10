@@ -91,9 +91,13 @@ return require('packer').startup(function()
 
   --use "lukas-reineke/indent-blankline.nvim"
 
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0)
-    end}
+	use 'nvim-orgmode/orgmode'
+
+  use "akinsho/org-bullets.nvim"
+
+  --use {
+    --'glacambre/firenvim',
+    --run = function() vim.fn['firenvim#install'](0)
+    --end}
 
   end)

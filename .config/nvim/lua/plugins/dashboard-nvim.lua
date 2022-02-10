@@ -3,6 +3,8 @@ local version = vim.version()
 
 utils.map('n', '<leader>dd', '<cmd>Dashboard<CR>')
 
+vim.g.dashboard_enable_session = false
+
 vim.g.dashboard_default_executive = 'telescope'
 
 vim.g.dashboard_custom_header = {
@@ -20,6 +22,7 @@ vim.g.dashboard_custom_header = {
   '',
   '',
 }
+
 
 vim.g.dashboard_custom_section = {
   find_session = {

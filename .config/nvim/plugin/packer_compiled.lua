@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/home/danielj/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
-  firenvim = {
-    loaded = true,
-    path = "/home/danielj/.local/share/nvim/site/pack/packer/start/firenvim",
-    url = "https://github.com/glacambre/firenvim"
-  },
   ["lightspeed.nvim"] = {
     loaded = true,
     path = "/home/danielj/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
@@ -218,6 +213,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/danielj/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["org-bullets.nvim"] = {
+    loaded = true,
+    path = "/home/danielj/.local/share/nvim/site/pack/packer/start/org-bullets.nvim",
+    url = "https://github.com/akinsho/org-bullets.nvim"
+  },
+  orgmode = {
+    loaded = true,
+    path = "/home/danielj/.local/share/nvim/site/pack/packer/start/orgmode",
+    url = "https://github.com/nvim-orgmode/orgmode"
   },
   ["packer.nvim"] = {
     loaded = false,
