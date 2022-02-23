@@ -2,8 +2,9 @@ local utils = require('utils')
 
 require'auto-session'.setup({
   auto_session_enable_last_session = false,
-  auto_session_enabled = false,
-  auto_save_enabled = false,
+  auto_session_enabled = true,
+  auto_session_create_enabled = false,
+  auto_save_enabled = true,
   auto_restore_enabled = false,
   auto_session_suppress_dirs = {utils.home}
 })

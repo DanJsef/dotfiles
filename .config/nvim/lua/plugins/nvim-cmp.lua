@@ -47,6 +47,7 @@ cmp.setup({
 				tags = "[Tags]",
 				treesitter = "[Treesitter]",
 				dictionary = "[Dictionary]",
+				orgmode = "[Orgmode]",
 			})[entry.source.name]
       return vim_item
     end

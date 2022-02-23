@@ -31,3 +31,6 @@ require('plugins/nvim-colorizer')
 require('plugins/neoscroll')
 --require('plugins/indent-blankline')
 require('plugins/orgmode')
+
+require('lspconfig/prolog_lsp')
+require('lspconfig').prolog_lsp.setup{}
