@@ -64,7 +64,7 @@ bindsym $mod+m exec --no-startup-id ~/.config/eww/launch_eww
 bindsym $mod+Shift+q kill
 
 # start menu
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id $HOME/.config/rofi/bin/launcher_text
 
 # screenshot
 bindsym $mod+Shift+p exec --no-startup-id flameshot gui
