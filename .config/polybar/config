@@ -6,10 +6,10 @@ top = true
 
 fixed-center = true
 
-width = 98.4%
+width = 1888
 height = 42
 
-offset-x = 0.8%
+offset-x = 16
 offset-y = 10
 
 ; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
@@ -32,7 +32,7 @@ font-2 = FontAwesome5Free:style=Solid:size=8;2
 font-3 = unifont:size=10;3
 
 modules-left = i3
-modules-center =
+modules-center = title
 modules-right = wireless-network sep memory sep cpu sep pulseaudio sep battery sep date
 
 spacing = 0
@@ -97,6 +97,24 @@ label-focused = %index%
 label-focused-background = #4C566A
 label-focused-padding = 2
 label-focused-foreground = #D8DEE9
+
+[module/title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-padding = 1
+format-foreground = #fff
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = " %title%"
+label-maxlen = 30
+
+; Used instead of label when there is no window title
+label-empty = " Desktop"
 
 [module/pulseaudio]
 type = internal/pulseaudio
