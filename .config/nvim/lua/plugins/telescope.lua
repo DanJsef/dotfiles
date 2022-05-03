@@ -17,7 +17,8 @@ require('telescope').setup{
       },
     },
 		file_ignore_patterns = {
-			".git"
+			".git/",
+			".node_modules/"
 		}
   },
 	pickers = {

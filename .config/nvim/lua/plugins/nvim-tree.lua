@@ -37,12 +37,7 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = true,
   open_on_tab         = false,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
   hijack_cursor       = false,
   update_cwd          = true,
   diagnostics = {
@@ -68,7 +63,6 @@ require'nvim-tree'.setup {
     width = 35,
     height = 30,
     side = 'left',
-    auto_resize = false,
     mappings = {
       custom_only = false,
       list = {
