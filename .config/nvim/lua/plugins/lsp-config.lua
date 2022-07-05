@@ -13,11 +13,11 @@ utils.map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 utils.map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 utils.map('n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 utils.map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-utils.map('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-utils.map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-utils.map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-utils.map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
-utils.map('n', '<leader>bb', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+utils.map('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
+utils.map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+utils.map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+utils.map('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+utils.map('n', '<leader>bb', '<cmd>lua vim.lsp.buf.format()<CR>')
 
 vim.api.nvim_exec([[
   augroup lsp_document_highlight
@@ -27,25 +27,37 @@ vim.api.nvim_exec([[
   augroup END
 ]], false)
 
-local lsp_installer = require("nvim-lsp-installer")
+--local lsp_installer = require("nvim-lsp-installer")
 
-lsp_installer.on_server_ready(function(server)
-		require'lsp_signature'.setup({cfg = {fix_pos = true}});
-		local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    local opts = { capabilities = capabilities }
+--lsp_installer.on_server_ready(function(server)
+		--require'lsp_signature'.setup({cfg = {fix_pos = true}});
+		--local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    --local opts = { capabilities = capabilities }
 
-		if server.name == "sumneko_lua" then
-			opts.settings = {Lua = {
-						diagnostics = {
-								globals = { 'vim', 'use' }
-						}
-				}}
-		end
+		--if server.name == "sumneko_lua" then
+			--opts.settings = {Lua = {
+						--diagnostics = {
+								--globals = { 'vim', 'use' }
+						--}
+				--}}
+		--end
 
-		if server.name == "clangd" then
-			opts.cmd = { "clangd", "--header-insertion=iwyu", "--background-index" }
-		end
+		--if server.name == "clangd" then
+			--opts.cmd = { "clangd", "--header-insertion=iwyu", "--background-index" }
+		--end
 
 
-    server:setup(opts)
-end)
+    --server:setup(opts)
+--end)
+
+local lspinstaller = require'nvim-lsp-installer'
+local lspconfig = require'lspconfig'
+require'lsp_signature'.setup({cfg = {fix_pos = true}});
+
+lspinstaller.setup{}
+
+for _, server in ipairs(lspinstaller.get_installed_servers()) do
+  lspconfig[server.name].setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+end

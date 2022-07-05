@@ -8,29 +8,6 @@ if not present then
 end
 
 local tree_cb = tree_c.nvim_tree_callback
-local g = vim.g
-
-g.nvim_tree_icons = {
-    default = "",
-    symlink = "",
-    git = {
-        unstaged = "✗",
-        staged = "✓",
-        unmerged = "",
-        renamed = "➜",
-        untracked = "★",
-        deleted = "",
-        ignored = "◌"
-    },
-    folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = ""
-    }
-}
 
 require'nvim-tree'.setup {
   disable_netrw       = true,
@@ -58,7 +35,31 @@ require'nvim-tree'.setup {
     cmd  = nil,
     args = {}
   },
-
+  renderer = {
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+            unstaged = "✗",
+            staged = "✓",
+            unmerged = "",
+            renamed = "➜",
+            untracked = "★",
+            deleted = "",
+            ignored = "◌"
+        },
+        folder = {
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = "",
+            symlink_open = ""
+        }
+      }
+    }
+  },
   view = {
     width = 35,
     height = 30,
