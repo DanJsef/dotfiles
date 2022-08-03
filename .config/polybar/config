@@ -27,9 +27,9 @@ module-margin = 1
 
 ;font-0 = DejaVu Sans Mono for Powerline:style=Medium:size=7.5;2
 font-0 = Terminus (TTF):size=8.5;1.5
-font-1 = feather-custom:size=9;3
-font-2 = FontAwesome5Free:style=Solid:size=8;2
-font-3 = unifont:size=10;3
+font-1 = Font Awesome 6 Free:style=Solid:size=8;2
+;font-1 = Font Awesome 6 Free Solid:pixelsize=12;2
+;font-3 = unifont:size=10;3
 
 modules-left = i3
 modules-center = title
@@ -152,13 +152,13 @@ label-volume-foreground = #D08770
 ; Available tokens:
 ;   %percentage% (default)
 ;   %decibels%
-label-muted = 
+label-muted = 
 label-muted-foreground = #D08770
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 ramp-volume-foreground = #D08770
 
 ; Right and Middle click
@@ -200,12 +200,12 @@ label-disconnected = 
 label-disconnected-foreground = #C33027
 
 ramp-signal-foreground = #A3BE8C
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
 
 [module/cpu]
 type = internal/cpu
@@ -214,7 +214,7 @@ type = internal/cpu
 ; Default: 1
 interval = 0.5
 
-label =  %percentage:2%%
+label =  %percentage:2%%
 
 label-foreground = #81A1C1
 
@@ -244,7 +244,7 @@ format = <label>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label =  %gb_used%
+label =  %gb_used%
 
 label-foreground = #B48EAD
 
@@ -337,7 +337,7 @@ format-full = <label-full>
 ;   %percentage_raw% (unreleased)
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging =  %percentage:2%%
+label-charging =   %percentage:2%%
 
 label-charging-foreground = #A3BE8C
 
@@ -353,7 +353,7 @@ label-discharging-foreground = #EDB54B
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw% (unreleased)
-label-full =  %percentage:2%%
+label-full =  %percentage:2%%
 label-full-foreground = #A3BE8C
 
 ; Only applies if <ramp-capacity> is used

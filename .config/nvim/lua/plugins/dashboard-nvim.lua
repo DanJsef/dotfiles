@@ -1,13 +1,12 @@
 local utils = require('utils')
 local version = vim.version()
+local db = require('dashboard')
 
 utils.map('n', '<leader>dd', '<cmd>Dashboard<CR>')
 
 vim.g.dashboard_enable_session = false
 
-vim.g.dashboard_default_executive = 'telescope'
-
-vim.g.dashboard_custom_header = {
+db.custom_header = {
   '',
   '',
   '███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
@@ -18,30 +17,43 @@ vim.g.dashboard_custom_header = {
   '╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
   '',
   '',
-  '                    version: ' .. version['major'] .. '.' .. version['minor'] .. '.' .. version['patch'],
+  'version: ' .. version['major'] .. '.' .. version['minor'] .. '.' .. version['patch'],
   '',
   '',
 }
 
 
-vim.g.dashboard_custom_section = {
-  find_session = {
-    description = {'  Find session                            SPC f s'},
-    command =  'Telescope session-lens search_session'},
-  find_history = {
-    description = {'  Recently opened files                   SPC f h'},
-    command =  'DashboardFindHistory'},
-  find_file  = {
-    description = {'  Find  File                              SPC f f'},
-    command = 'Telescope find_files'},
-  new_file = {
-   description = {'  File Browser                            SPC f b'},
-   command =  'Telescope file_browser'},
-  find_word = {
-   description = {'  Find  word                              SPC f g'},
-   command = 'DashboardFindWord'},
-  find_dotfiles = {
-   description = {'  Open Personal dotfiles                  SPC f d'},
-   command = 'Telescope find_files cwd=~/.config/nvim'},
+db.custom_center = {
+  {
+    icon = ' ',
+    desc = 'Find session                            ',
+    shortcut = 'SPC f s',
+    action =  'Telescope session-lens search_session'},
+  {
+    icon = ' ',
+    desc = 'Recently opened files                   ',
+    shortcut = 'SPC f h',
+    action =  'DashboardFindHistory'},
+  {
+    icon = ' ',
+    desc = 'Find file                               ',
+    shortcut = 'SPC f f',
+    action = 'Telescope find_files'},
+  {
+    icon = ' ',
+    desc = 'File browser                            ',
+    shortcut = 'SPC f b',
+    action =  'Telescope file_browser'},
+  {
+    icon = ' ',
+    desc = 'Find word                               ',
+    shortcut = 'SPC f g',
+    action = 'Telescope live_grep'},
+  {
+    icon = ' ',
+    desc = 'Open personal dotfiles                  ',
+    shortcut = 'SPC f d',
+    action = 'Telescope find_files cwd=~/.config/nvim'},
 }
 
+db.custom_footer = {}
