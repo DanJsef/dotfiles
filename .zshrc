@@ -9,13 +9,51 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/home/danielj/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Please only use this battery segment if you have material icons in your nerd font (or font)
+# Otherwise, use the font awesome one in "User Segments"
+P9K_MODE="nerdfont-complete"
+
+P9K_PROMPT_ON_NEWLINE=true
+P9K_RPROMPT_ICON_LEFT=true
+
+P9K_LEFT_PROMPT_ELEMENTS=(dir_writable user dir vcs )
+P9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs  disk_usage ram time )
+# time os_icon
+P9K_NODE_VERSION_FOREGROUND="black"
+P9K_TIME_ICON=""
+P9K_NEWLINE_ICON="\uF09C"
+P9K_TIME_ICON_COLOR='green'
+
+P9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL="\ue0b2"
+
+P9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL="\ue0b0"
+
+P9K_WHITESPACE_BETWEEN_LEFT_SEGMENTS=" "
+P9K_WHITESPACE_BETWEEN_RIGHT_SEGMENTS=""
+
+P9K_LEFT_SEGMENT_SEPARATOR_ICON="\ue0b0"
+P9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\ue0b1"
+P9K_RIGHT_SEGMENT_SEPARATOR_ICON="\ue0b2"
+P9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON="\ue0b3"
+
+P9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON="%F{blue}"$'\u256D\u2500'"%F{white}"
+P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%F{blue}"$'\u2570\uf460'"%F{white}"
+
+P9K_USER_ROOT_ICON="\uF09C"
+P9K_USER_SUDO_ICON="\uF09C"
+P9K_TIME_FORMAT="%D{%H:%M}"
+
+P9K_CUSTOM_SEGMENT="echo "
+P9K_CUSTOM_SEGMENT_BACKGROUND="black"
+P9K_CUSTOM_SEGMENT_FOREGROUND="white"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -30,16 +68,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -51,9 +90,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -88,6 +124,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#EB606B"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -116,8 +154,11 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 path+=$HOME/bin
+path+=$HOME/.config/composer/vendor/bin
 
 export EDITOR="nvim"
 export BAT_THEME="Nord"
 
+alias zoomj="/home/danielj/Documents/side-projects/automation/zoom/zoom.py"
 alias vim=nvim
+alias wb='w3m duckduckgo.com'

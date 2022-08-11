@@ -198,18 +198,19 @@ bindsym $mod+0 exec --no-startup-id betterlockscreen -l
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+#exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id pulseaudio
-exec_always --no-startup-id polybar mybar
+exec_always --no-startup-id $HOME/bin/launch_polybar
 exec_always --no-startup-id picom --config .config/picom/picom.conf --experimental-backends
 
 # set keyboard layout
-exec --no-startup-id setxkbmap -layout vok -variant qwertz -option caps:swapescape
+exec_always --no-startup-id setxkbmap -layout vok -variant qwertz -option caps:swapescape
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/andre-benz-JBkwaYMuhdc-unsplash.jpg ~/Pictures/wallpapers/andre-benz-JBkwaYMuhdc-unsplash.jpg
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

@@ -1,5 +1,7 @@
 [bar/mybar]
 
+monitor = ${env:MONITOR:}
+
 override-redirect = true
 
 top = true
@@ -88,6 +90,10 @@ wrapping-scroll = false
 reverse-scroll = false
 
 fuzzy-match = true
+
+label-visible = %index%
+label-visible-padding = 2
+label-visible-foreground = #D8DEE9
 
 label-unfocused = %index%
 label-unfocused-padding = 2
