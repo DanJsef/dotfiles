@@ -34,3 +34,5 @@ require('plugins/orgmode')
 
 require('lspconfig/prolog_lsp')
 require('lspconfig').prolog_lsp.setup{}
+
+vim.g.Illuminate_useDeprecated = 1

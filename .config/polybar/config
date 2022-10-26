@@ -56,7 +56,7 @@ tray-maxsize = 16
 
 tray-transparent = false
 
-tray-background = ${root.background}
+tray-background = #992E3440
 
 tray-offset-x = 0
 tray-offset-y = 0

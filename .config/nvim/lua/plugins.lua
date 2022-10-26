@@ -4,7 +4,11 @@ return require('packer').startup(function()
 
 	--use 'arcticicestudio/nord-vim'
 
-	use 'shaunsingh/nord.nvim'
+  use 'shaunsingh/nord.nvim'
+
+  --use 'rmehri01/onenord.nvim'
+
+  --use 'andersevenrud/nordic.nvim'
 
 	--use { 'maaslalani/nordbuddy' }
 

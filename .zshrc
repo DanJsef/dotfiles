@@ -155,6 +155,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#EB606B"
 
 path+=$HOME/bin
 path+=$HOME/.config/composer/vendor/bin
+path+=$HOME/.local/bin
 
 export EDITOR="nvim"
 export BAT_THEME="Nord"
